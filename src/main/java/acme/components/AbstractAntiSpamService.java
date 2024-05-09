@@ -40,7 +40,7 @@ public abstract class AbstractAntiSpamService<R extends AbstractRole, O extends 
 
 	private boolean validateSpam(final String text) {
 		List<String> phrases = this.repository.findAllSpam();
-		Integer numWords = text.split("\\\\s+").length;
+		Integer numWords = text.split("\\\s+").length;
 		double threshold = this.repository.findThresholdSpam();
 		int count = 0;
 
