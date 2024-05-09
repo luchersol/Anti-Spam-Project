@@ -40,6 +40,7 @@ public abstract class AbstractAntiSpamService<R extends AbstractRole, O extends 
 
 	private boolean validateSpam(final String text) {
 		List<String> phrases = this.repository.findAllSpam();
+		Integer numWords = text.split("\\\\s+").length;
 		double threshold = this.repository.findThresholdSpam();
 		int count = 0;
 
@@ -56,11 +57,11 @@ public abstract class AbstractAntiSpamService<R extends AbstractRole, O extends 
 			pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE);
 			matcher = pattern.matcher(text);
 
-			if (matcher.find())
+			while (matcher.find())
 				count++;
 		}
 
-		double ratio = count / (double) phrases.size();
+		double ratio = count / (double) numWords;
 
 		return ratio <= threshold;
 	}
