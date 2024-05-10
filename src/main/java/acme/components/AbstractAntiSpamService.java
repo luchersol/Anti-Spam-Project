@@ -3,6 +3,7 @@ package acme.components;
 
 import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,7 +28,7 @@ public abstract class AbstractAntiSpamService<R extends AbstractRole, O extends 
 			field.setAccessible(true);
 			if (field.getType() == String.class)
 				try {
-					status = this.validateSpam(field.get(object).toString());
+					status = this.validateSpam(Objects.toString(field.get(object)));
 					super.state(status, field.getName(), "spam.error.message");
 					if (!status)
 						break;
