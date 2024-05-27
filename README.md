@@ -2,6 +2,8 @@
 
  Para conectar nuestro proyecto de Anti-Spam con el proyecto de Acme-SF es necesario entrar Properties->Java Build Path->Projects y dentro de Classpath pulsar Add y seleccionar nuestro proyecto Anti-Spam
 
+ Aquí se enlaza un video para la instalación y demostración de su funcionamiento: https://www.youtube.com/watch?v=Kv_gAuIDelw
+
 ## Contenido importante
  Dentro de la carpeta src\main\webapp\WEB-INF\views se encuentra la carpeta master, dicha carpeta se debe mover a la misma ruta correspondiente en el proyecto de Acme-SF para proporcionar unos mensajes de error personalizados para el Spam
 
